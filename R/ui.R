@@ -11,8 +11,6 @@ ui <- function() {
       fluidRow(
         #div(class = "col", span(HTML("Latest</br>Rents data"), class = "badgeDescript"))
         div(class = "col", badge_rental())
-        #div(class = "col", badge_goods()),
-        #div(class = "col", badge_services())
       )
     )
   
@@ -23,14 +21,14 @@ ui <- function() {
     sidebar = shinydashboard::dashboardSidebar(
       shinydashboard::sidebarMenu(id = 'tabs',
                                   shinydashboard::menuItem("Rents", tabName = "vic_rents", selected = TRUE), #%>% 
-                                  shinydashboard::menuItem("Vacancies", tabName = "vacancy"), 
-                                  shinydashboard::menuItem("Vacancies", tabName = "vacancy") %>%
+                                  #shinydashboard::menuItem("Vacancies", tabName = "vacancy"), 
+                                  shinydashboard::menuItem("Vacancies", tabName = "vacancy")
                                     #shinydashboard::menuItem("Balance of Payments", tabName = "bop"),
                                     #shinydashboard::menuItem("FAQ & sources", tabName = "methodology"),
                                     #shinydashboard::menuItem("Disclaimer", tabName = "disclaimer") %>%
-                                    shiny::tagAppendAttributes(
-                                      style = "display:none;"
-                                    )
+                                    # shiny::tagAppendAttributes(
+                                    #   style = "display:none;"
+                                    # )
       ),
       width = "250px"
     ),
