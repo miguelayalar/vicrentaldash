@@ -8,24 +8,38 @@ library(readr)
 library(readabs)
 
 
-load_data <- function(dbs_name = 'Median Weekly Rents_202403', path = "data/") {
+load_data <- function(file, path = "data/") {
+  
   if(is.null(path)){stop("you need to specify database path")}
-  # file <- paste0(path, dbs_name, ".rds")
-  # dbs <- readRDS(file)
-  # 
-  file <- paste0(path, dbs_name, ".csv")
+  
   dbs <- read_csv(file, show_col_types = FALSE)
   
 }
 
 
-load_data() %>% 
+
+data_list <- function(){
+  
+  dbs_files <- list.files(path = "data/", full.names = TRUE)
+  
+  dbs_names <- c(
+    "rental" = dbs_files[1],
+    "vacancy" = dbs_files[2]
+  )
+  
+  map(dbs_names, .f = load_data)
+}
+
+
+
+data_list()$rental %>% 
   filter(!lga %in% c("Group Total", "Greater Melbourne", "Regional Victoria", "Victoria")) %>% 
   dplyr::distinct(lga)  %>%
   dplyr::pull(lga) %>%
   assign("lgas", ., envir = .GlobalEnv)
 
-load_data() %>% dplyr::distinct(region)  %>%
+data_list()$rental %>% 
+  dplyr::distinct(region)  %>%
   dplyr::pull(region) %>%
   assign("regions", ., envir = .GlobalEnv)
 
@@ -39,12 +53,15 @@ load_data_vancancy <- function(dbs_name = 'Vacancy rates Vic', path = "data-raw/
   file <- paste0(path, dbs_name, ".csv")
   dbs <- read_csv(file, show_col_types = FALSE)
   
-  dbs <- dbs %>% pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
-  dplyr::mutate(date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))) %>% select(-Dates) %>% drop_na()
+  dbs <- data_list()$vacancy %>% pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
+  dplyr::mutate(
+    date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))
+    ) %>% 
+    select(-Dates) %>% 
+    drop_na()
   
 }
 
-load_data_vancancy() %>% dplyr::distinct(area)  %>%
-  dplyr::pull(area) %>%
+data_list()$vacancy %>% select(-1) %>% names() %>% 
   assign("areas", ., envir = .GlobalEnv)
 

@@ -15,6 +15,7 @@ source("R/viz_vic_vacancies.R")
 source("R/theme.R")
 
 
+# Application -----
 server <- function(input, output, session) {
   
   load_data() %>% dplyr::distinct(lga)  %>%
@@ -41,6 +42,6 @@ server <- function(input, output, session) {
 
 
 
-# # Run the application 
+# Run the application ----- 
 shinyApp(ui = ui, server = server)
  

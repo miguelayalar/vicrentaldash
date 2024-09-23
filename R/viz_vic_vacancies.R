@@ -1,12 +1,19 @@
 library(highcharter)
 
 
-# Annual growth of Victoria's imports and exports of goods & services
-highcharts_vacancy <- function(data = load_data_vancancy(),
-                                     regions = c("Melbourne","Melbourne City")
+# Vacancy rates in Melbourne
+highcharts_vacancy <- function(
+    data = data_list()$vacancy,
+    regions = c("Melbourne","Melbourne City")
 ) {
   
-  df <- data %>%
+  df <- data %>% 
+    pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
+    dplyr::mutate(
+      date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))
+    ) %>% 
+    select(-Dates) %>% 
+    drop_na() %>% 
     dplyr::filter(
       .data$area %in% regions 
     ) %>%
@@ -34,9 +41,7 @@ highcharts_vacancy <- function(data = load_data_vancancy(),
     highcharter::hc_exporting(enabled = TRUE) %>%
     highcharter::hc_title(text = title) %>%
     highcharter::hc_subtitle(text = "Residential vacancy rates") %>%
-    highcharter::hc_caption(
-      text = caption
-    )  %>%
+    highcharter::hc_caption(text = caption)  %>%
     thm_highcharts() %>%
     highcharter::hc_rangeSelector(
       inputEnabled = T,
@@ -78,4 +83,4 @@ highcharts_vacancy <- function(data = load_data_vancancy(),
   
 }
 
-#highcharts_vic_regions_rents()
+highcharts_vacancy()
