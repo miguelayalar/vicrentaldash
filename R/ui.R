@@ -9,8 +9,8 @@ ui <- function() {
     tagAppendChildren(
       .cssSelector = ".navbar-custom-menu",
       fluidRow(
-        div(class = "col", span(HTML("Latest</br>Rents data"), class = "badgeDescript"))
-        #div(class = "col", badge_bop()),
+        #div(class = "col", span(HTML("Latest</br>Rents data"), class = "badgeDescript"))
+        div(class = "col", badge_rental())
         #div(class = "col", badge_goods()),
         #div(class = "col", badge_services())
       )

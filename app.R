@@ -7,22 +7,17 @@ library(highcharter)
 
 # load resources ----
 source("R/ui.R")
+source("R/badges.R")
+source("R/load_data.R")
+source("R/theme.R")
 source("R/page_rents.R")
 source("R/page_vacancy.R")
-source("R/load_data.R")
 source("R/viz_vic_rents.R")
 source("R/viz_vic_vacancies.R")
-source("R/theme.R")
 
 
 # Application -----
 server <- function(input, output, session) {
-  
-  # load_data() %>% dplyr::distinct(lga)  %>%
-  #   dplyr::pull(lga) %>%
-  #   assign("lgas", ., envir = .GlobalEnv)
-  
-  #set_hcharts_options()
   
   
   output$vic_rents <- renderHighchart({

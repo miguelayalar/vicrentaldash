@@ -1,9 +1,12 @@
 # Highchart theme
+
 thm_highcharts <- function(hc){
   
   highcharter::hc_add_theme(
     hc,
     highcharter::hc_theme(
+      
+      
       chart = list(
         backgroundColor = NULL,
         style = list(
@@ -70,7 +73,7 @@ thm_highcharts <- function(hc){
         enabled = FALSE
       ),
       caption = list(
-        # x = 75,
+        
         style = list(
           color = "#000000"
         )

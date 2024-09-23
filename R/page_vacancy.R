@@ -24,25 +24,7 @@ page_vacancyUI <- function(...) {
           non_selected_header = "All regions:",
           selected_header = "Selected regions:"
         )
-      ) %>% fluidRow(),
-      br(),
-      shiny::fluidRow(
-        style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:10px;",
-        shiny::column(
-          12,
-          #    
-          # Data transformation
-          # shinyWidgets::radioGroupButtons(
-          #   "rents_explorer_growth", #this name needs to match with server input name
-          #   status = "secondary",
-          #   label = "Data Transformation",
-          #   choiceNames = c("Level", "Annual growth"),
-          #   choiceValues = c(F,T),
-          #   selected = TRUE,
-          #   justified = T
-          # )
-        )
-      )#,
+      ) %>% fluidRow()
       
     ) %>%
       tagAppendAttributes(
@@ -57,7 +39,6 @@ page_vacancyUI <- function(...) {
         style = "font-size:20px;font-weight:bold;",
         .cssSelector = ".box-header h3"
       ),
-    #to_col_xl(),
     column(
       8,
       div(
@@ -74,8 +55,6 @@ page_vacancyUI <- function(...) {
           )
         )
       )
-    )#,
-    
-    #footer()
+    )
   )
 }

@@ -18,7 +18,6 @@ highcharts_vic_lga_rents <- function(data = data_list(),
     ) %>%
     dplyr::mutate(
       group = paste(.data$region, .data$lga, sep = " - ")
-      #value = ifelse(is.na(value), zoo::na.approx(value), value)
       )
 
 
@@ -39,16 +38,17 @@ highcharts_vic_lga_rents <- function(data = data_list(),
   
   
   title <- "Victorian Rents"
-  caption <- paste0("Source: Department of<br>Families, Fairness and Housing Rental Report. <br>Note: All properties")
+  caption <- "Source: Department of Families, Fairness and Housing. <br>Note: All properties"
   
   
   
   # Make highchart
   highchart(type = "stock") %>%
-    hc_add_series(df %>% select(group, date, value), "line",
-                  hcaes(y = round(value), x = date, group = group)
-                  ) %>%
-    #hc_chart(height = 250 * length(y_axis_labs)) %>%
+    hc_add_series(
+      df, 
+      "line",
+      hcaes(y = round(value), x = date, group = group)
+      ) %>%
     highcharter::hc_plotOptions(series = list(label = list(enabled = TRUE))) %>%
     highcharter::hc_yAxis(
       labels = if(growth == TRUE){

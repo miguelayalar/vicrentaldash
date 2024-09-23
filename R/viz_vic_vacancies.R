@@ -19,16 +19,17 @@ highcharts_vacancy <- function(
     )
   
   
-  title <- "Victoria vacancy rates"
+  title <- "Greater Melbourne vacancy rates"
   caption <- "Source: SQM"
   
   
   
   # Make highchart
   highchart(type = "stock") %>%
-    hc_add_series(df, 
-                  "line",
-                  hcaes(y = value, x = date, group = area)
+    hc_add_series(
+      df, 
+      "line",
+      hcaes(y = value, x = date, group = area)
     ) %>%
     highcharter::hc_plotOptions(series = list(label = list(enabled = TRUE))) %>%
     highcharter::hc_yAxis(
@@ -79,4 +80,3 @@ highcharts_vacancy <- function(
   
 }
 
-highcharts_vacancy()
