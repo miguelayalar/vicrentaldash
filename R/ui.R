@@ -56,7 +56,6 @@ ui <- function() {
       shiny::tags$script("$('html').attr(\"lang\", \"en\")"),
       shiny::tags$script("$('section.content').attr(\"role\", \"main\")"),
       shinydashboard::tabItems(
-        #shinydashboard::tabItem("launchpad", page_launchpadUI('lp')),
         shinydashboard::tabItem("vic_rents", page_rentsUI()),
         shinydashboard::tabItem("vacancy", page_vacancyUI())
         #shinydashboard::tabItem("services", page_servicesUI()),
