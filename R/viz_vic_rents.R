@@ -20,7 +20,6 @@ highcharts_vic_lga_rents <- function(data = data_list(),
       group = paste(.data$region, .data$lga, sep = " - ")
       )
 
-
   
   # 
   # growth data
