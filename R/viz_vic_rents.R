@@ -10,13 +10,14 @@ highcharts_vic_lga_rents <- function(data = load_data(),
                                      ) {
   
   df <- data %>%
+    dplyr::filter(!lga %in% c("Group Total", "Greater Melbourne", "Regional Victoria", "Victoria")) %>%
     dplyr::filter(
       series == "Median",
       dwelling_type == "All Properties",
       .data$lga %in% lgas 
     ) %>%
     dplyr::mutate(
-      group = paste(.data$region, .data$lga, sep = "-"),
+      group = paste(.data$region, .data$lga, sep = " - "),
       value = ifelse(is.na(value), zoo::na.approx(value), value))
 
 
@@ -37,8 +38,7 @@ highcharts_vic_lga_rents <- function(data = load_data(),
   
   
   title <- "Victorian Rents"
-  
-  caption <- paste0("Source: Department of\nFamilies, Fairness and Housing Rental Report. \nNote: All properties")
+  caption <- paste0("Source: Department of<br>Families, Fairness and Housing Rental Report. <br>Note: All properties")
   
   
   
@@ -59,13 +59,7 @@ highcharts_vic_lga_rents <- function(data = load_data(),
     highcharter::hc_exporting(enabled = TRUE) %>%
     highcharter::hc_title(text = title) %>%
     highcharter::hc_subtitle(text = "Median Weekly rent") %>%
-    highcharter::hc_caption(
-      text = if(growth){
-        caption
-      } else {
-        caption
-      }
-    )  %>%
+    highcharter::hc_caption(text = caption)  %>%
     thm_highcharts() %>%
     highcharter::hc_rangeSelector(
       inputEnabled = T,

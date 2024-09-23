@@ -19,7 +19,9 @@ load_data <- function(dbs_name = 'Median Weekly Rents_202403', path = "data/") {
 }
 
 
-load_data() %>% dplyr::distinct(lga)  %>%
+load_data() %>% 
+  filter(!lga %in% c("Group Total", "Greater Melbourne", "Regional Victoria", "Victoria")) %>% 
+  dplyr::distinct(lga)  %>%
   dplyr::pull(lga) %>%
   assign("lgas", ., envir = .GlobalEnv)
 
