@@ -4,12 +4,12 @@ library(zoo)
 
 
 # Annual growth of Victoria's imports and exports of goods & services
-highcharts_vic_lga_rents <- function(data = load_data(),
+highcharts_vic_lga_rents <- function(data = data_list(),
                                      lgas = c("Kingston", "Merri-bek", "Maroondah"),
                                      growth = TRUE
                                      ) {
   
-  df <- data %>%
+  df <- data$rental %>%
     dplyr::filter(!lga %in% c("Group Total", "Greater Melbourne", "Regional Victoria", "Victoria")) %>%
     dplyr::filter(
       series == "Median",
@@ -17,8 +17,9 @@ highcharts_vic_lga_rents <- function(data = load_data(),
       .data$lga %in% lgas 
     ) %>%
     dplyr::mutate(
-      group = paste(.data$region, .data$lga, sep = " - "),
-      value = ifelse(is.na(value), zoo::na.approx(value), value))
+      group = paste(.data$region, .data$lga, sep = " - ")
+      #value = ifelse(is.na(value), zoo::na.approx(value), value)
+      )
 
 
   

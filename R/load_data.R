@@ -43,25 +43,6 @@ data_list()$rental %>%
   dplyr::pull(region) %>%
   assign("regions", ., envir = .GlobalEnv)
 
-
-load_data_vancancy <- function(dbs_name = 'Vacancy rates Vic', path = "data-raw/SQM/") {
-  if(is.null(path)){stop("you need to specify database path")}
-  # file <- paste0(path, dbs_name, ".rds")
-  # dbs <- readRDS(file)
-  # 
-  #Sys.setenv(TZ="Australia/Sydney")
-  file <- paste0(path, dbs_name, ".csv")
-  dbs <- read_csv(file, show_col_types = FALSE)
-  
-  dbs <- data_list()$vacancy %>% pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
-  dplyr::mutate(
-    date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))
-    ) %>% 
-    select(-Dates) %>% 
-    drop_na()
-  
-}
-
 data_list()$vacancy %>% select(-1) %>% names() %>% 
   assign("areas", ., envir = .GlobalEnv)
 

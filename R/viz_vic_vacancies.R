@@ -16,24 +16,20 @@ highcharts_vacancy <- function(
     drop_na() %>% 
     dplyr::filter(
       .data$area %in% regions 
-    ) %>%
-    dplyr::mutate(
-      group = paste(.data$area),
-      value = ifelse(is.na(value), 0, value))
+    )
   
   
   title <- "Victoria vacancy rates"
-  
-  caption <- paste0("Source: SQM")
+  caption <- "Source: SQM"
   
   
   
   # Make highchart
   highchart(type = "stock") %>%
-    hc_add_series(df %>% select(group, date, value), "line",
-                  hcaes(y = value, x = date, group = group)
+    hc_add_series(df, 
+                  "line",
+                  hcaes(y = value, x = date, group = area)
     ) %>%
-    #hc_chart(height = 250 * length(y_axis_labs)) %>%
     highcharter::hc_plotOptions(series = list(label = list(enabled = TRUE))) %>%
     highcharter::hc_yAxis(
       labels = list(format = "{text}%")

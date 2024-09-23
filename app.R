@@ -18,9 +18,9 @@ source("R/theme.R")
 # Application -----
 server <- function(input, output, session) {
   
-  load_data() %>% dplyr::distinct(lga)  %>%
-    dplyr::pull(lga) %>%
-    assign("lgas", ., envir = .GlobalEnv)
+  # load_data() %>% dplyr::distinct(lga)  %>%
+  #   dplyr::pull(lga) %>%
+  #   assign("lgas", ., envir = .GlobalEnv)
   
   #set_hcharts_options()
   
