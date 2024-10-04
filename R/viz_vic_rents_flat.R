@@ -5,7 +5,7 @@ library(zoo)
 
 # Annual growth of Victoria's imports and exports of goods & services
 highcharts_vic_lga_rents_flat <- function(data = data_list(),
-                                     lgas = c("Kingston", "Merri-bek", "Maroondah"),
+                                     lgas = c("Kingston", "Knox", "Maroondah"),
                                      growth = TRUE
 ) {
   
@@ -110,4 +110,3 @@ highcharts_vic_lga_rents_flat <- function(data = data_list(),
   
 }
 
-highcharts_vic_lga_rents_flat(growth = FALSE)
