@@ -6,16 +6,49 @@ page_rentsUI <- function(...) {
     
     # Overview - LGA rents
     "Weekly median rents by LGA" %>%
-      h2() %>% div(class = "inner") %>%
-      div(class = "small-box") %>% column(12, .) %>%
+      h2() %>% 
+      div(class = "inner") %>%
+      div(class = "small-box") %>% 
+      column(12, .) %>%
       fluidRow(),
+    
+    
+    shiny::fluidRow(
+      
+      shinydashboard::box(
+        width = 8,
+        column(
+          12,
+          div(
+            class = "box",
+            style = "padding:15px;",
+            fluidRow(
+              column(
+                12,
+                shinycssloaders::withSpinner(
+                  highchartOutput("vic_rents", height = "600px"),
+                  type = 8,
+                  color = "#000000"
+                )
+              )
+            )
+          )
+        )
+      ),
+    
+    #BOX
+    
     
     
     # Chart option selectors
     shinydashboard::box(
+      
+      
       title = "Explorer options",
       width = 4,
       collapsible = TRUE,
+      
+      
       shinyWidgets::multiInput( #widget for the LGA selection
         inputId = "vic_lgas",
         label = "Select Local Government Areas",
@@ -57,27 +90,26 @@ page_rentsUI <- function(...) {
       tagAppendAttributes(
         style = "font-size:20px;font-weight:bold;",
         .cssSelector = ".box-header h3"
-      ),
-      #to_col_xl(),
-    column(
-      8,
-      div(
-        class = "box",
-        style = "padding:15px;",
-        fluidRow(
-          column(
-            12,
-            shinycssloaders::withSpinner(
-              highchartOutput("vic_rents", height = "600px"),
-              type = 8,
-              color = "#000000"
-            )
-          )
-        )
-      )
-    )
+      )#,
+    #   
+    # column(
+    #   8,
+    #   div(
+    #     class = "box",
+    #     style = "padding:15px;",
+    #     fluidRow(
+    #       column(
+    #         12,
+    #         shinycssloaders::withSpinner(
+    #           highchartOutput("vic_rents", height = "600px"),
+    #           type = 8,
+    #           color = "#000000"
+    #         )
+    #       )
+    #     )
+    #   )
+     )
   )
 }
 
 
-#page_rentsUI()
