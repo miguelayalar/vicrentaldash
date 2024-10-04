@@ -90,24 +90,7 @@ page_rentsUI <- function(...) {
       tagAppendAttributes(
         style = "font-size:20px;font-weight:bold;",
         .cssSelector = ".box-header h3"
-      )#,
-    #   
-    # column(
-    #   8,
-    #   div(
-    #     class = "box",
-    #     style = "padding:15px;",
-    #     fluidRow(
-    #       column(
-    #         12,
-    #         shinycssloaders::withSpinner(
-    #           highchartOutput("vic_rents", height = "600px"),
-    #           type = 8,
-    #           color = "#000000"
-    #         )
-    #       )
-    #     )
-    #   )
+      )
      )
   )
 }

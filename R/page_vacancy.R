@@ -4,9 +4,36 @@ page_vacancyUI <- function(...) {
     
     # Overview 
     "Residential Vacancy rates" %>%
-      h2() %>% div(class = "inner") %>%
-      div(class = "small-box") %>% column(12, .) %>%
+      h2() %>% 
+      div(class = "inner") %>%
+      div(class = "small-box") %>% 
+      column(12, .) %>%
       fluidRow(),
+    
+    
+    shiny::fluidRow(
+      
+      shinydashboard::box(
+        width = 8,
+        column(
+          12,
+          div(
+            class = "box",
+            style = "padding:15px;",
+            fluidRow(
+              column(
+                12,
+                shinycssloaders::withSpinner(
+                  highchartOutput("vacancy", height = "600px"),
+                  type = 8,
+                  color = "#000000"
+                )
+              )
+            )
+          )
+        )
+      ),
+    
     
     
     # Chart option selectors
@@ -38,23 +65,7 @@ page_vacancyUI <- function(...) {
       tagAppendAttributes(
         style = "font-size:20px;font-weight:bold;",
         .cssSelector = ".box-header h3"
-      ),
-    column(
-      8,
-      div(
-        class = "box",
-        style = "padding:15px;",
-        fluidRow(
-          column(
-            12,
-            shinycssloaders::withSpinner(
-              highchartOutput("vacancy", height = "600px"),
-              type = 8,
-              color = "#000000"
-            )
-          )
-        )
       )
-    )
+     )
   )
 }
