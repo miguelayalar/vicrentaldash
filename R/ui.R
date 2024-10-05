@@ -20,8 +20,10 @@ ui <- function() {
     header = custom_header,
     sidebar = shinydashboard::dashboardSidebar(
       shinydashboard::sidebarMenu(id = 'tabs',
-                                  shinydashboard::menuItem("Rents", tabName = "vic_rents", selected = TRUE), #%>% 
-                                  #shinydashboard::menuItem("Vacancies", tabName = "vacancy"), 
+                                  shinydashboard::menuItem("Overview", tabName = "gccsa_rents", selected = TRUE), #%>% 
+                                  shinydashboard::menuItem("Houses", startExpanded = FALSE,
+                                                           shinydashboard::menuSubItem("All properties", tabName = "vic_rents")
+                                                           ), 
                                   shinydashboard::menuItem("Vacancies", tabName = "vacancy")
                                     #shinydashboard::menuItem("Balance of Payments", tabName = "bop"),
                                     #shinydashboard::menuItem("FAQ & sources", tabName = "methodology"),
@@ -57,8 +59,8 @@ ui <- function() {
       shiny::tags$script("$('section.content').attr(\"role\", \"main\")"),
       shinydashboard::tabItems(
         shinydashboard::tabItem("vic_rents", page_rentsUI()),
-        shinydashboard::tabItem("vacancy", page_vacancyUI())
-        #shinydashboard::tabItem("services", page_servicesUI()),
+        shinydashboard::tabItem("vacancy", page_vacancyUI()),
+        shinydashboard::tabItem("gccsa_rents", page_gccsa_rentsUI())
         #shinydashboard::tabItem("methodology", page_methodology()),
         #shinydashboard::tabItem("disclaimer", page_disclaimerUI())
       )

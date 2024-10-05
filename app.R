@@ -12,8 +12,10 @@ source("R/load_data.R")
 source("R/theme.R")
 source("R/page_rents.R")
 source("R/page_vacancy.R")
+source("R/page_gccsa_rents.R")
 source("R/viz_vic_rents.R")
 source("R/viz_vic_vacancies.R")
+source("R/viz_gccsa_rents.R")
 
 
 # Application -----
@@ -25,6 +27,16 @@ server <- function(input, output, session) {
       lgas = req(input$vic_lgas),
       growth = input$rents_explorer_growth
     )
+  })
+  
+  
+  output$gccsa_rents <- renderHighchart({
+    highcharts_vic_gccsa()
+  })
+  
+  
+  output$gccsa_rents_gr <- renderHighchart({
+    highcharts_vic_gccsa_gr()
   })
   
   output$vacancy <- renderHighchart({
