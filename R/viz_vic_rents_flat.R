@@ -110,3 +110,5 @@ highcharts_vic_lga_rents_flat <- function(data = data_list(),
   
 }
 
+
+highcharts_vic_lga_rents_flat(growth = FALSE)
