@@ -3,6 +3,10 @@
 library(shiny)
 library(shinydashboard)
 library(highcharter)
+library(leaflet)
+library(mapview)
+library(sf)
+library(leafpop)
 
 
 # load resources ----
@@ -13,9 +17,11 @@ source("R/theme.R")
 source("R/page_rents.R")
 source("R/page_vacancy.R")
 source("R/page_gccsa_rents.R")
+source("R/page_maps.R")
 source("R/viz_vic_rents.R")
 source("R/viz_vic_vacancies.R")
 source("R/viz_gccsa_rents.R")
+source("R/viz_map_lga.R")
 
 
 # Application -----
@@ -44,6 +50,12 @@ server <- function(input, output, session) {
       regions = req(input$areas)
     )
   })
+  
+  output$maps_rents <- renderLeaflet({
+    m <- mapview_vic_lga()
+    m@map
+  })
+  
   
 }
 

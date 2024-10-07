@@ -24,8 +24,8 @@ ui <- function() {
                                   shinydashboard::menuItem("Houses", startExpanded = FALSE,
                                                            shinydashboard::menuSubItem("All properties", tabName = "vic_rents")
                                                            ), 
-                                  shinydashboard::menuItem("Vacancies", tabName = "vacancy")
-                                    #shinydashboard::menuItem("Balance of Payments", tabName = "bop"),
+                                  shinydashboard::menuItem("Vacancies", tabName = "vacancy"),
+                                  shinydashboard::menuItem("Maps", tabName = "maps_rent")
                                     #shinydashboard::menuItem("FAQ & sources", tabName = "methodology"),
                                     #shinydashboard::menuItem("Disclaimer", tabName = "disclaimer") %>%
                                     # shiny::tagAppendAttributes(
@@ -60,8 +60,8 @@ ui <- function() {
       shinydashboard::tabItems(
         shinydashboard::tabItem("vic_rents", page_rentsUI()),
         shinydashboard::tabItem("vacancy", page_vacancyUI()),
-        shinydashboard::tabItem("gccsa_rents", page_gccsa_rentsUI())
-        #shinydashboard::tabItem("methodology", page_methodology()),
+        shinydashboard::tabItem("gccsa_rents", page_gccsa_rentsUI()),
+        shinydashboard::tabItem("maps_rent", page_maps_rentsUI())
         #shinydashboard::tabItem("disclaimer", page_disclaimerUI())
       )
     )
