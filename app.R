@@ -51,9 +51,8 @@ server <- function(input, output, session) {
     )
   })
   
-  output$maps_rents <- renderLeaflet({
-    m <- mapview_vic_lga()
-    m@map
+  output$maps_rent <- renderLeaflet({
+    mapview_vic_lga()
   })
   
   
