@@ -9,7 +9,7 @@ ui <- function() {
     tagAppendChildren(
       .cssSelector = ".navbar-custom-menu",
       fluidRow(
-        #div(class = "col", span(HTML("Latest</br>Rents data"), class = "badgeDescript"))
+        div(class = "col", span(HTML("Victoria Rent</br>Rents data"), class = "badgeDescript")),
         div(class = "col", badge_rental())
       )
     )
