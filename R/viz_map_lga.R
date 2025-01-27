@@ -25,7 +25,6 @@ mapview_vic_lga <- function(data = data_list()
       weight = 1,          # Border weight
       opacity = .3,         # Border opacity
       fillOpacity = 0.4,   # Fill opacity
-      #popup = ~paste0("<strong>LGA: <strong>", lga, "<br><strong>Median weekly rent:<strong> $", value),
       label = paste0("<strong>LGA: <strong>", df$lga, "<br><strong>Median weekly rent:<strong> $", df$value) %>%
         lapply(htmltools::HTML)
     ) %>% 
@@ -41,3 +40,4 @@ mapview_vic_lga <- function(data = data_list()
     
 }
 
+mapview_vic_lga()

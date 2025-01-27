@@ -15,8 +15,6 @@ page_maps_rentsUI <- function(...) {
     
     shiny::fluidRow(
       
-      # shinydashboard::box(
-      #   width = 8,
       column(
         12,
         shiny::div(
@@ -38,4 +36,3 @@ page_maps_rentsUI <- function(...) {
   )
 }
 
-#mapviewOutput(outputId, width = "100%", height = 400)
