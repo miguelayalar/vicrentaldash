@@ -1,9 +1,8 @@
-library(highcharter)
 
 
 # Vacancy rates in Melbourne
 highcharts_vacancy <- function(
-    data = data_list()$vacancy,
+    data = datalist$vacancy,
     regions = c("Melbourne","Melbourne City")
 ) {
   
@@ -80,3 +79,4 @@ highcharts_vacancy <- function(
   
 }
 
+highcharts_vacancy()

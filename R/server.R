@@ -30,6 +30,10 @@ server <- function(input, output, session) {
     mapview_vic_lga()
   })
   
+  output$maps_rent_flats <- renderLeaflet({
+    mapview_vic_lga(dw_type = "2br Flat")
+  })
+  
   
 }
 

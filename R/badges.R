@@ -2,7 +2,7 @@
 
 badge_rental <- function(...){
   
-  d <- data_list()$rent
+  d <- datalist$rent
   
   m <- d %>% pull(date) %>% max() %>% lubridate::month(label = TRUE, abbr = FALSE)
   y <- d %>% pull(date) %>% max() %>% lubridate::year()

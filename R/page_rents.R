@@ -53,7 +53,7 @@ page_rentsUI <- function(...) {
         inputId = "vic_lgas",
         label = "Select Local Government Areas",
         choices = sort(lgas),
-        selected = c("Kingston", "Merri-bek"),
+        selected = c("Kingston", "Merri-bek", "Maroondah"),
         width = "100%",
         options = list(
           non_selected_header = "All LGAs:",

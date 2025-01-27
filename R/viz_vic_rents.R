@@ -1,15 +1,12 @@
 
-library(highcharter)
-library(zoo)
-
 
 # Annual growth of Victoria's imports and exports of goods & services
-highcharts_vic_lga_rents <- function(data = data_list(),
+highcharts_vic_lga_rents <- function(data = datalist$rental,
                                      lgas = c("Kingston", "Merri-bek", "Maroondah"),
                                      growth = TRUE
                                      ) {
   
-  df <- data$rental %>%
+  df <- data %>%
     dplyr::filter(!lga %in% c("Group Total", "Greater Melbourne", "Regional Victoria", "Victoria")) %>%
     dplyr::filter(
       series == "Median",

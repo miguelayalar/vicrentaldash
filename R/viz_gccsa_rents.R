@@ -1,13 +1,10 @@
 
-library(highcharter)
-library(zoo)
-
 
 # level chart ----
-highcharts_vic_gccsa <- function(data = data_list()
+highcharts_vic_gccsa <- function(data = datalist$rental
                                 ) {
   
-  df <- data$rental %>%
+  df <- data %>%
     dplyr::filter(lga %in% c("Greater Melbourne", "Regional Victoria")) %>%
     dplyr::filter(
       series == "Median",
@@ -79,10 +76,10 @@ highcharts_vic_gccsa <- function(data = data_list()
 
 
 # growth chart ----
-highcharts_vic_gccsa_gr <- function(data = data_list()
+highcharts_vic_gccsa_gr <- function(data = datalist$rental
                                     ) {
   
-  df <- data$rental %>%
+  df <- data %>%
     dplyr::filter(lga %in% c("Greater Melbourne", "Regional Victoria")) %>%
     dplyr::filter(
       series == "Median",

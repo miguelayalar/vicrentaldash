@@ -1,16 +1,13 @@
 
-library(leaflet)
-library(mapview)
-library(sf)
-library(leafpop)
 
 
 # level chart ----
-mapview_vic_lga <- function(data = data_list()
+mapview_vic_lga <- function(data = datalist$map_rents,
+                            dw_type = "All Properties"
 ) {
   
-  df <- data$map_rents %>%
-    filter(dwelling_type=="All Properties") %>% 
+  df <- data %>%
+    filter(dwelling_type==dw_type) %>% 
     select(lga, series, value, dwelling_type)
   
   
@@ -23,16 +20,16 @@ mapview_vic_lga <- function(data = data_list()
       data = df,
       color = ~pal(value),     # Border color
       weight = 1,          # Border weight
-      opacity = .3,         # Border opacity
+      opacity = .5,         # Border opacity
       fillOpacity = 0.4,   # Fill opacity
       label = paste0("<strong>LGA: <strong>", df$lga, "<br><strong>Median weekly rent:<strong> $", df$value) %>%
         lapply(htmltools::HTML)
     ) %>% 
-    addLegend(data = df,
+    leaflet::addLegend(data = df,
               position = "bottomright",
               pal = pal, 
               values = ~value,
-              title = "Median",
+              title = "Median Price",
               labFormat = labelFormat(prefix = "$"),
               opacity = 1) %>% 
     addProviderTiles(providers$CartoDB.Positron)
@@ -40,4 +37,4 @@ mapview_vic_lga <- function(data = data_list()
     
 }
 
-mapview_vic_lga()
+
