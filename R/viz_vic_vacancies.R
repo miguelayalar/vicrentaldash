@@ -7,12 +7,12 @@ highcharts_vacancy <- function(
 ) {
   
   df <- data %>% 
-    pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
+    tidyr::pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
     dplyr::mutate(
       date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))
     ) %>% 
-    select(-Dates) %>% 
-    drop_na() %>% 
+    dplyr::select(-Dates) %>% 
+    tidyr::drop_na() %>% 
     dplyr::filter(
       .data$area %in% regions 
     )
@@ -24,8 +24,8 @@ highcharts_vacancy <- function(
   
   
   # Make highchart
-  highchart(type = "stock") %>%
-    hc_add_series(
+  highcharter::highchart(type = "stock") %>%
+    highcharter::hc_add_series(
       df, 
       "line",
       hcaes(y = value, x = date, group = area)
@@ -79,4 +79,3 @@ highcharts_vacancy <- function(
   
 }
 
-highcharts_vacancy()

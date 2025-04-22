@@ -1,6 +1,7 @@
 :root {
   --sunrise: #4cc9f0;
   --twilight: #d6d7d4;
+  --turquoise: #00EDC8;
   --night: #293241;
   --midnight: #3a0ca3;
   --highnoon: #f6d809;
@@ -186,7 +187,7 @@ a {
 
 .skin-blue .sidebar-menu > li.active:hover > a {
   border-left: 10px solid var(--midnight);
-  background: var(--twilight);
+  background: var(--turquoise);
   color: var(--midnight);
 }
 
@@ -196,7 +197,7 @@ a {
 
 .skin-blue .sidebar-menu > li:hover > a {
   border-left: 10px solid var(--midnight);
-  background: var(--twilight);
+  background: var(--turquoise);
   color: var(--midnight);
 }
 

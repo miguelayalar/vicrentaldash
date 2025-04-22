@@ -1,4 +1,5 @@
 
+#' @import highcharter
 
 page_rentsUI <- function(...) {
   

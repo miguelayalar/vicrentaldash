@@ -1,4 +1,5 @@
 
+#' @import leaflet
 
 
 # level chart ----
@@ -7,8 +8,8 @@ mapview_vic_lga <- function(data = datalist$map_rents,
 ) {
   
   df <- data %>%
-    filter(dwelling_type==dw_type) %>% 
-    select(lga, series, value, dwelling_type)
+    dplyr::filter(dwelling_type == dw_type) %>% 
+    dplyr::select(lga, series, value, dwelling_type)
   
   
   pal <- colorBin("viridis", domain = df$value)

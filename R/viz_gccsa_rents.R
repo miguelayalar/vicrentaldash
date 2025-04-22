@@ -90,11 +90,10 @@ highcharts_vic_gccsa_gr <- function(data = datalist$rental
     dplyr::group_by(.data$lga) %>%
     dplyr::arrange(.data$date) %>%
     dplyr::mutate(
-      value = 100 * ((value
-                      / dplyr::lag(value,4)) - 1)
+      value = 100 * ((value / dplyr::lag(value,4)) - 1)
     ) %>%
     dplyr::filter(!is.na(value)) %>%
-    ungroup()
+    dplyr::ungroup()
   
   title <- "Annual Growth"
   caption <- "Source: Department of Families, Fairness and Housing."

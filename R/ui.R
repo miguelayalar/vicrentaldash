@@ -1,4 +1,5 @@
 
+#' @import shiny
 
 # UI for application ----
 ui <- function() {

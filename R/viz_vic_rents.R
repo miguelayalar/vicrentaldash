@@ -25,11 +25,10 @@ highcharts_vic_lga_rents <- function(data = datalist$rental,
       dplyr::group_by(.data$group) %>%
       dplyr::arrange(.data$date) %>%
       dplyr::mutate(
-        value = 100 * ((value
-                        / dplyr::lag(value,4)) - 1)
+        value = 100 * ((value / dplyr::lag(value,4)) - 1)
       ) %>%
       dplyr::filter(!is.na(value)) %>%
-      ungroup()
+      dplyr::ungroup()
   }
   
   
@@ -107,4 +106,3 @@ highcharts_vic_lga_rents <- function(data = datalist$rental,
   
 }
 
-#highcharts_vic_lga_rents(growth = TRUE)

@@ -1,7 +1,4 @@
 
-library(highcharter)
-library(zoo)
-
 
 # Annual growth of Victoria's imports and exports of goods & services
 highcharts_vic_lga_rents_flat <- function(data = datalist$rental,
@@ -111,4 +108,3 @@ highcharts_vic_lga_rents_flat <- function(data = datalist$rental,
 }
 
 
-highcharts_vic_lga_rents_flat(growth = FALSE)

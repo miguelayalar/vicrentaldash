@@ -4,8 +4,8 @@ badge_rental <- function(...){
   
   d <- datalist$rent
   
-  m <- d %>% pull(date) %>% max() %>% lubridate::month(label = TRUE, abbr = FALSE)
-  y <- d %>% pull(date) %>% max() %>% lubridate::year()
+  m <- d %>% dplyr::pull(date) %>% max() %>% lubridate::month(label = TRUE, abbr = FALSE)
+  y <- d %>% dplyr::pull(date) %>% max() %>% lubridate::year()
   
   
   tags$button(
