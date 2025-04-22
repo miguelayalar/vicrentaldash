@@ -16,7 +16,7 @@ page_maps_rentsUI <- function(...) {
     shiny::fluidRow(
       
       shinydashboard::box(
-        width = 8,
+        width = 12,
         column(
         12,
         shiny::div(
@@ -37,39 +37,39 @@ page_maps_rentsUI <- function(...) {
     ),
     
     
-    # Chart option selectors
-    shinydashboard::box(
-      title = "Explorer options",
-      width = 4,
-      collapsible = TRUE,
-      shinyWidgets::multiInput( #widget for the area selection
-        inputId = "areas",
-        label = "Select type",
-        choices = sort(areas),
-        selected = c("Melbourne", "Melbourne City"),
-        width = "100%",
-        options = list(
-          non_selected_header = "All regions:",
-          selected_header = "Selected regions:"
-        )
-      ) %>% 
-        fluidRow()
-      
-    ) %>%
-      tagAppendAttributes(
-        style = "background:var(--twilight);",
-        .cssSelector = ".box"
-      ) %>%
-      tagAppendAttributes(
-        style = "padding:15px;",
-        .cssSelector = ".box-body"
-      ) %>%
-      tagAppendAttributes(
-        style = "font-size:20px;font-weight:bold;",
-        .cssSelector = ".box-header h3"
-      )
+    # # Chart option selectors
+    # shinydashboard::box(
+    #   title = "Explorer options",
+    #   width = 4,
+    #   collapsible = TRUE,
+    #   shinyWidgets::multiInput( #widget for the area selection
+    #     inputId = "areas",
+    #     label = "Select type",
+    #     choices = sort(areas),
+    #     selected = c("Melbourne", "Melbourne City"),
+    #     width = "100%",
+    #     options = list(
+    #       non_selected_header = "All regions:",
+    #       selected_header = "Selected regions:"
+    #     )
+    #   ) %>% 
+    #     fluidRow()
+    #   
+    # ) %>%
+    #   tagAppendAttributes(
+    #     style = "background:var(--twilight);",
+    #     .cssSelector = ".box"
+    #   ) %>%
+    #   tagAppendAttributes(
+    #     style = "padding:15px;",
+    #     .cssSelector = ".box-body"
+    #   ) %>%
+    #   tagAppendAttributes(
+    #     style = "font-size:20px;font-weight:bold;",
+    #     .cssSelector = ".box-header h3"
+    #   )
     ),
-    
+
     
     
     

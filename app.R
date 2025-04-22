@@ -22,4 +22,3 @@ datalist$vacancy %>% dplyr::select(-1) %>% names() %>%
 
 # Run the application ----- 
 shinyApp(ui = ui, server = server)
- 
