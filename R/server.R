@@ -26,12 +26,16 @@ server <- function(input, output, session) {
     )
   })
   
-  output$maps_rent <- leaflet::renderLeaflet({
-    mapview_vic_lga()
+  output$maps_rent_house <- leaflet::renderLeaflet({
+    leaflet_vic_lga(
+      dw_type = input$house_type
+    )
   })
   
   output$maps_rent_flats <- leaflet::renderLeaflet({
-    mapview_vic_lga(dw_type = "2br Flat")
+    leaflet_vic_lga(
+      dw_type = input$flat_type
+      )
   })
   
   

@@ -3,7 +3,7 @@
 
 
 # level chart ----
-mapview_vic_lga <- function(data = datalist$map_rents,
+leaflet_vic_lga <- function(data = datalist$map_rents,
                             dw_type = "All Properties"
 ) {
   
@@ -16,7 +16,7 @@ mapview_vic_lga <- function(data = datalist$map_rents,
   
   leaflet() %>%
     addTiles() %>%
-    setView(lng = 144.5, lat = -37.5, zoom = 7) %>%
+    setView(lng = 144.5, lat = -37.5, zoom = 9) %>%
     addPolygons(
       data = df,
       color = ~pal(value),     # Border color
