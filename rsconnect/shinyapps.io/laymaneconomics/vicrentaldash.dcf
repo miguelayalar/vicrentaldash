@@ -5,8 +5,8 @@ account: laymaneconomics
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 13817239
-bundleId: 9717315
-url: https://laymaneconomics.shinyapps.io/vicrentaldash/
+bundleId: 10306257
+url: https://laymanecon.shinyapps.io/vicrentaldash/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
