@@ -3,6 +3,5 @@
 
 ## usethis namespace: start
 #' @importFrom dplyr %>%
-#' @importFrom magrittr %>%
 ## usethis namespace: end
 NULL

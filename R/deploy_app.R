@@ -22,9 +22,10 @@ deploy_app <- function(...) {
   datalist$vacancy %>% dplyr::select(-1) %>% names() %>%
     assign("areas", ., envir = .GlobalEnv)
   
-  
+  ui <- ui()
+  #server <- server()
   
   # Run the application -----
-  shiny::shinyApp(ui = ui, server = server)
+  shiny::shinyApp(ui = ui, server = server, ...)
   
 }
