@@ -1,8 +1,6 @@
 
-monthApp <- function(...) {
 
-  # Load objects from this project
-  pkgload::load_all(".")
+deploy_app <- function(...) {
   
   # Define global variables available to UI and server
   datalist$rental %>%
@@ -27,5 +25,6 @@ monthApp <- function(...) {
   
   
   # Run the application -----
-  shinyApp(ui = ui, server = server)
+  shiny::shinyApp(ui = ui, server = server)
+  
 }
