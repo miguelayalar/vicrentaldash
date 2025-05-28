@@ -15,6 +15,8 @@ ui <- function() {
       )
     )
   
+  use_css()
+  use_js()
   
   shinydashboard::dashboardPage(
     title = "Victorian Housing Dashboard",
@@ -36,16 +38,17 @@ ui <- function() {
       width = "250px"
     ),
     body = shinydashboard::dashboardBody(
-      tags$head( #adding stylng using css
+      shiny::tags$head( #adding stylng using css
         # Bootstrap 5 for xl columns
-        tags$link(
+        shiny::tags$link(
           href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
           rel = "stylesheet",
           integrity = "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
           crossorigin = "anonymous"
         ),
         # Gloabl vic css
-        tags$link(href = "globalvic.css", rel = "stylesheet"),
+        shiny::tags$link(href = "vicrental_css/globalvic.css?id=1", rel = "stylesheet"),
+        
         # Launchpad links (client side execution)
         #shiny::tags$script("$(document).ready(function(){$('a.launchpadLink').click(function(){$('.sidebar-menu a[data-value=\"launchpad\"]').trigger('click');})});"),
         #shiny::tags$script("$(document).ready(function(){$('a.rentsLink').click(function(){$('.sidebar-menu a[data-value=\"vic_rents\"]').trigger('click');})});"),
@@ -54,7 +57,7 @@ ui <- function() {
         #shiny::tags$script("$(document).ready(function(){$('a.methodologyLink').click(function(){$('.sidebar-menu a[data-value=\"methodology\"]').trigger('click');})});"),
         #shiny::tags$script("$(document).ready(function(){$('a.disclaimerLink').click(function(){$('.sidebar-menu a[data-value=\"disclaimer\"]').trigger('click');})});"),
         # Resize highcharts on sidebar collapse
-        shiny::tags$script(src = "sidebar_chart_resize.JS")
+        shiny::tags$script(src = "vicrental_js/sidebar_chart_resize.JS?id=1")
       ),
       shiny::tags$script("$('html').attr(\"lang\", \"en\")"),
       shiny::tags$script("$('section.content').attr(\"role\", \"main\")"),
