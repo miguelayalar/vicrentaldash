@@ -13,7 +13,7 @@ page_vacancyUI <- function(...) {
     
     shiny::fluidRow(
       
-      shinydashboard::box(
+      box(
         width = 8,
         column(
           12,
@@ -37,7 +37,7 @@ page_vacancyUI <- function(...) {
     
     
     # Chart option selectors
-    shinydashboard::box(
+    box(
       title = "Explorer options",
       width = 4,
       collapsible = TRUE,

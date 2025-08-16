@@ -15,7 +15,7 @@ page_gccsa_rentsUI <- function(...) {
     
     shiny::fluidRow(
       
-      # shinydashboard::box(
+      # box(
       #   width = 8,
         column(
           6,

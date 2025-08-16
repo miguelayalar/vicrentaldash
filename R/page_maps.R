@@ -15,7 +15,7 @@ page_maps_rentsUI <- function(...) {
     shiny::fluidRow(
       
       # # Chart option selectors
-      shinydashboard::box(
+      box(
         
         title = "Explorer options",
         width = 12,
@@ -84,7 +84,7 @@ page_maps_rentsUI <- function(...) {
     shiny::fluidRow(
       
       # # Chart option selectors
-      shinydashboard::box(
+      box(
         
         title = "Explorer options",
         width = 12,

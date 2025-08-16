@@ -59,7 +59,6 @@ ui <- function() {
         tabItem("vacancy", page_vacancyUI()),
         tabItem("gccsa_rents", page_gccsa_rentsUI()),
         tabItem("maps_rent", page_maps_rentsUI())
-        #tabItem("disclaimer", page_disclaimerUI())
       )
     )
   )
