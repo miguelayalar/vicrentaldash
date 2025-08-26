@@ -1,10 +1,11 @@
 
 #' @import shiny
+#' @import shinydashboard
 
 # UI for application ----
 ui <- function() {
   
-  custom_header <- dashboardHeader()
+  custom_header <- shinydashboard::dashboardHeader()
   custom_header$children[[2]] <- NULL
   custom_header <- custom_header %>%
     tagAppendChildren(
@@ -18,17 +19,17 @@ ui <- function() {
   use_css()
   use_js()
   
-  dashboardPage(
+  shinydashboard::dashboardPage(
     title = "Victorian Housing Dashboard",
     header = custom_header,
-    sidebar = dashboardSidebar(
-      sidebarMenu(id = 'tabs',
-                                  menuItem("Overview", tabName = "gccsa_rents", selected = TRUE), #%>% 
-                                  menuItem("Houses", startExpanded = FALSE,
-                                                           menuSubItem("All properties", tabName = "vic_rents")
+    sidebar = shinydashboard::dashboardSidebar(
+      shinydashboard::sidebarMenu(id = 'tabs',
+                                  shinydashboard::menuItem("Overview", tabName = "gccsa_rents", selected = TRUE), #%>% 
+                                  shinydashboard::menuItem("Weekly Rent", startExpanded = FALSE,
+                                                           shinydashboard::menuSubItem("All properties", tabName = "vic_rents")
                                                            ), 
-                                  menuItem("Vacancies", tabName = "vacancy"),
-                                  menuItem("Maps", tabName = "maps_rent")
+                                  shinydashboard::menuItem("Vacancies", tabName = "vacancy"),
+                                  shinydashboard::menuItem("Rent Map", tabName = "maps_rent")
                                     #menuItem("FAQ & sources", tabName = "methodology"),
                                     #menuItem("Disclaimer", tabName = "disclaimer") %>%
                                     # shiny::tagAppendAttributes(
@@ -37,7 +38,7 @@ ui <- function() {
       ),
       width = "250px"
     ),
-    body = dashboardBody(
+    body = shinydashboard::dashboardBody(
       shiny::tags$head( #adding stylng using css
         # Bootstrap 5 for xl columns
         shiny::tags$link(
@@ -61,11 +62,11 @@ ui <- function() {
       ),
       shiny::tags$script("$('html').attr(\"lang\", \"en\")"),
       shiny::tags$script("$('section.content').attr(\"role\", \"main\")"),
-      tabItems(
-        tabItem("vic_rents", page_rentsUI()),
-        tabItem("vacancy", page_vacancyUI()),
-        tabItem("gccsa_rents", page_gccsa_rentsUI()),
-        tabItem("maps_rent", page_maps_rentsUI())
+      shinydashboard::tabItems(
+        shinydashboard::tabItem("vic_rents", page_rentsUI()),
+        shinydashboard::tabItem("vacancy", page_vacancyUI()),
+        shinydashboard::tabItem("gccsa_rents", page_gccsa_rentsUI()),
+        shinydashboard::tabItem("maps_rent", page_maps_rentsUI())
         #tabItem("disclaimer", page_disclaimerUI())
       )
     )

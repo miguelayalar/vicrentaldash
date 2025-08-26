@@ -33,7 +33,7 @@ highcharts_vic_gccsa <- function(data = datalist$rental
     highcharter::hc_caption(text = caption)  %>%
     thm_highcharts() %>%
     highcharter::hc_rangeSelector(
-      inputEnabled = T,
+      inputEnabled = FALSE,
       floating = FALSE,
       buttonPosition = list(align = "left"),
       selected = 1,
@@ -117,7 +117,7 @@ highcharts_vic_gccsa_gr <- function(data = datalist$rental
     highcharter::hc_caption(text = caption)  %>%
     thm_highcharts() %>%
     highcharter::hc_rangeSelector(
-      inputEnabled = T,
+      inputEnabled = FALSE,
       floating = FALSE,
       buttonPosition = list(align = "left"),
       selected = 1,
