@@ -1,11 +1,11 @@
 
-#' @import shiny
+#' @import bs4Dash
 
 # UI for application ----
 ui <- function() {
   
-  custom_header <- dashboardHeader()
-  custom_header$children[[2]] <- NULL
+  custom_header <- bs4DashNavbar(rightUi = NULL)
+  #custom_header$children[[2]] <- NULL
   custom_header <- custom_header %>%
     tagAppendChildren(
       .cssSelector = ".navbar-custom-menu",
@@ -19,25 +19,29 @@ ui <- function() {
   use_js()
   
   dashboardPage(
+    help = NULL,
+    scrollToTop = TRUE,
     title = "Victorian Housing Dashboard",
     header = custom_header,
     sidebar = dashboardSidebar(
-      sidebarMenu(id = 'tabs',
-                                  menuItem("Overview", tabName = "gccsa_rents", selected = TRUE), #%>% 
-                                  menuItem("Houses", startExpanded = FALSE,
-                                                           menuSubItem("All properties", tabName = "vic_rents")
-                                                           ), 
-                                  menuItem("Vacancies", tabName = "vacancy"),
-                                  menuItem("Maps", tabName = "maps_rent")
-                                    #menuItem("FAQ & sources", tabName = "methodology"),
-                                    #menuItem("Disclaimer", tabName = "disclaimer") %>%
-                                    # shiny::tagAppendAttributes(
-                                    #   style = "display:none;"
-                                    # )
+      sidebarMenu(
+        id = 'tabs', 
+        menuItem("Overview", tabName = "gccsa_rents", selected = TRUE), #%>%
+        menuItem("Houses",
+                 startExpanded = FALSE,
+                 menuSubItem("All properties", tabName = "vic_rents")), 
+        menuItem("Vacancies", tabName = "vacancy"), 
+        menuItem("Maps", tabName = "maps_rent")
+        #menuItem("FAQ & sources", tabName = "methodology"),
+        #menuItem("Disclaimer", tabName = "disclaimer") %>%
+        # shiny::tagAppendAttributes(
+        #   style = "display:none;"
+        # )
       ),
       width = "250px"
     ),
     body = dashboardBody(
+      
       shiny::tags$head( #adding stylng using css
         # Bootstrap 5 for xl columns
         shiny::tags$link(

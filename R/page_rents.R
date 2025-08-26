@@ -16,10 +16,10 @@ page_rentsUI <- function(...) {
     
     shiny::fluidRow(
       
-      box(
-        width = 8,
+      #box(
+      #  width = 8,
         column(
-          12,
+          8,
           div(
             class = "box",
             style = "padding:15px;",
@@ -34,7 +34,7 @@ page_rentsUI <- function(...) {
               )
             )
           )
-        )
+       # )
       ),
     
     #BOX

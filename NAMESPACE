@@ -2,7 +2,7 @@
 
 export(use_css)
 export(use_js)
+import(bs4Dash)
 import(highcharter)
 import(leaflet)
-import(shiny)
 importFrom(dplyr,"%>%")

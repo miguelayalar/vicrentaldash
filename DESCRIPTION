@@ -23,7 +23,7 @@ Imports:
     scales,
     shiny,
     shinycssloaders,
-    shinydashboard,
+    bs4Dash,
     shinyWidgets,
     slider,
     sf,
