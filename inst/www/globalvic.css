@@ -1,11 +1,14 @@
 :root {
-  --sunrise: #4cc9f0;
-  --twilight: #d6d7d4;
-  --turquoise: #00EDC8;
+  --grey: #F5F5F7;
   --night: #293241;
-  --midnight: #3a0ca3;
-  --highnoon: #f6d809;
-  --mauve: #E6BFFF;
+  --teal: #00FFEA;
+  --light-blue: #6BABFE;
+  --midnight: #8B4EF8;
+  --navbar-bg-dark-teal: #00404C;
+  --hover-light-teal: #BFFFFA;
+  --tbl-bg-hover: #F0E6FF;
+  --small-box-bg: #00404C;
+  --small-box-text: #ffffff
 }
 
 @font-face {
@@ -77,7 +80,7 @@ a {
 
 .skin-blue .main-header .navbar {
   margin-left: 0;
-  background-color: var(--midnight);
+  background-color: var(--navbar-bg-dark-teal);
   width: 100%;
 }
 
@@ -91,7 +94,7 @@ a {
 
 #sidebarCollapsed {
   padding-top: 70px;
-  background-color: var(--midnight);
+  background-color: var(--navbar-bg-dark-teal);
 }
 
 .content-wrapper,
@@ -101,8 +104,8 @@ a {
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
-  color: var(--midnight);
-  background-color: var(--sunrise);
+  color: var(--navbar-bg-dark-teal);
+  background-color: var(--hover-light-teal);
   font-weight: bold;
   border-radius: 50%;
   width: 50px;
@@ -111,12 +114,12 @@ a {
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:focus {
-  background: var(--sunrise);
+  background: var(--hover-light-teal);
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
-  background: var(--sunrise);
-  color: var(--midnight);
+  background: var(--hover-light-teal);
+  color: var(--navbar-bg-dark-teal);
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:before {
@@ -139,8 +142,8 @@ a {
 .small-box .inner {
   padding: 15px;
   border-radius: 1rem;
-  background-color: var(--sunrise);
-  color: var(--midnight);
+  background-color: var(--small-box-bg);
+  color: var(--small-box-text);
 }
 
 .small-box .inner h2 {
@@ -181,28 +184,28 @@ a {
 }
 
 .skin-blue .sidebar-menu > li.active > a {
-  border-left: 10px solid var(--midnight);
-  background: var(--night);
+  border-left: 10px solid var(--navbar-bg-dark-teal);
+  background: var(--navbar-bg-dark-teal);
 }
 
 .skin-blue .sidebar-menu > li.active:hover > a {
-  border-left: 10px solid var(--midnight);
-  background: var(--turquoise);
-  color: var(--midnight);
+  border-left: 10px solid var(--navbar-bg-dark-teal);
+  background: var(--hover-light-teal);
+  color: var(--navbar-bg-dark-teal);
 }
 
 .skin-blue .sidebar-menu > li > a {
-  border-left: 10px solid var(--midnight);
+  border-left: 10px solid var(--navbar-bg-dark-teal);
 }
 
 .skin-blue .sidebar-menu > li:hover > a {
-  border-left: 10px solid var(--midnight);
-  background: var(--turquoise);
-  color: var(--midnight);
+  border-left: 10px solid var(--navbar-bg-dark-teal);
+  background: var(--hover-light-teal);
+  color: var(--navbar-bg-dark-teal);
 }
 
 .skin-blue .wrapper {
-  background-color: var(--midnight);
+  background-color: var(--navbar-bg-dark-teal);
 }
 
 .djprTable {
@@ -251,12 +254,12 @@ a {
 }
 
 .djprTable tbody tr:hover {
-  background-color: var(--twilight);
+  background-color: var(--tbl-bg-hover);
 }
 
 .djprTable .djprTableHeading th,
 .djprTable .djprTableHeading td {
-  background-color: var(--twilight);
+  background-color: var(--grey);
   border-left: none;
   border-right: none;
   border-top: 2px solid #ffffff;
@@ -301,7 +304,7 @@ a {
 }
 
 .highcharts-data-table tbody tr:hover {
-  background-color: var(--twilight);
+  background-color: var(--grey);
 }
 
 .sourceBadge {
@@ -321,7 +324,7 @@ a {
   background-color: #ffffff;
   /*border-radius: 0.9rem 0 0 0.9rem;*/
   display: table-cell;
-  color: var(--midnight);
+  color: var(--navbar-bg-dark-teal);
   padding: 5px;
   font-weight: bold;
   vertical-align: middle;
@@ -331,7 +334,7 @@ a {
 .sourceBadge div:last-child {
   display: table-cell;
   vertical-align: middle;
-  background-color: var(--midnight);
+  background-color: var(--navbar-bg-dark-teal);
   padding: 5px;
   padding-right: 10px;
 }

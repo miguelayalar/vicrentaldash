@@ -16,12 +16,12 @@ page_rentsUI <- function(...) {
     
     shiny::fluidRow(
       
-      shinydashboard::box(
-        width = 8,
+      # shinydashboard::box(
+      #   width = 8,
         column(
-          12,
+          8,
           div(
-            class = "box",
+            class = ".box",
             style = "padding:15px;",
             fluidRow(
               column(
@@ -34,18 +34,13 @@ page_rentsUI <- function(...) {
               )
             )
           )
-        )
-      ),
+        ),
+      # ),
     
-    #BOX
-    
-    
-    
+    #Options Box
     # Chart option selectors
     shinydashboard::box(
-      
-      
-      title = "Explorer options",
+      title = "Options",
       width = 4,
       collapsible = TRUE,
       
@@ -81,7 +76,7 @@ page_rentsUI <- function(...) {
       )
     ) %>%
       tagAppendAttributes(
-        style = "background:var(--twilight);",
+        style = "background:var(--grey);",
         .cssSelector = ".box"
       ) %>%
       tagAppendAttributes(

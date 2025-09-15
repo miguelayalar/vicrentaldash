@@ -18,7 +18,7 @@ page_vacancyUI <- function(...) {
         column(
           12,
           div(
-            class = "box",
+            class = ".box",
             style = "padding:15px;",
             fluidRow(
               column(
@@ -55,7 +55,7 @@ page_vacancyUI <- function(...) {
       
     ) %>%
       tagAppendAttributes(
-        style = "background:var(--twilight);",
+        style = "background:var(--grey);",
         .cssSelector = ".box"
       ) %>%
       tagAppendAttributes(

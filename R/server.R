@@ -28,13 +28,15 @@ server <- function(input, output, session) {
   
   output$maps_rent_house <- leaflet::renderLeaflet({
     leaflet_vic_lga(
-      dw_type = input$house_type
+      dw_type = input$house_type,
+      date_chosen = input$quarter
     )
   })
   
   output$maps_rent_flats <- leaflet::renderLeaflet({
     leaflet_vic_lga(
-      dw_type = input$flat_type
+      dw_type = input$flat_type,
+      date_chosen = input$flat_quarter
       )
   })
   

@@ -5,7 +5,7 @@ page_maps_rentsUI <- function(...) {
   shiny::fluidPage(
     
     # Overview - LGA rents
-    "Median Weekly Rents by LGA" %>%
+    "Houses by LGA" %>%
       h2() %>% 
       div(class = "inner") %>%
       div(class = "small-box") %>% 
@@ -17,30 +17,52 @@ page_maps_rentsUI <- function(...) {
       # # Chart option selectors
       shinydashboard::box(
         
-        title = "Explorer options",
+        title = "Options",
         width = 12,
         collapsible = TRUE,
         
-        shiny::fluidRow(
-          style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:10px;",
-          shiny::column(
-            12,
+        # Choice selector widget
+        shiny::column(
+          6,
+          shiny::div(
+            class = ".box",
+            style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:15px;",
             
-            # choice selector
-            shinyWidgets::radioGroupButtons(
-              "house_type",
+            shinyWidgets::slimSelectInput(
               #this name needs to match with server input name
+              inputId = "house_type",
               status = "secondary",
               label = "Select number of bedrooms",
-              choiceNames = c("2 Bedrooms", "3 Bedrooms", "4 Bedrooms"),
-              choiceValues = c("2br House", "3br House", "4br House"),
+              choices = c(
+                "2 Bedrooms" = "2br House",
+                "3 Bedrooms" = "3br House",
+                "4 Bedrooms" = "4br House"
+              ),
               selected = "2br House",
-              justified = T
+              search = FALSE
             )
           )
-      )) %>% 
-        tagAppendAttributes(
-          style = "background:var(--twilight);",
+        ), 
+        # Slider widget
+        shiny::column(
+            6,
+            shiny::div(
+              class = ".box",
+              style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:15px;",
+            #    
+            # Slide to select a quarter
+            shinyWidgets::sliderTextInput(
+              inputId = "quarter",
+              label = "Select a quarter",
+              choices = seq.Date("2018-03-02", "2025-03-02", by = "quarter"),
+              selected = c("2025-03-01"),
+              grid = TRUE
+              )
+            )
+            )
+        ) %>% 
+        htmltools::tagAppendAttributes(
+          style = "background:var(--grey);",
           .cssSelector = ".box"
         ) %>%
         tagAppendAttributes(
@@ -55,10 +77,10 @@ page_maps_rentsUI <- function(...) {
     # map chart
     shiny::fluidRow(
       
-        column(
-        12,
+        # column(
+        # 12,
         shiny::div(
-          class = "box",
+          class = ".box",
           style = "padding:15px;",
           fluidRow(
             column(
@@ -71,11 +93,11 @@ page_maps_rentsUI <- function(...) {
             )
           )
         )
-      )
+      # )
     ),
 
     
-    "Median Weekly Rents by LGA - Flats/Units" %>%
+    "Flats and Units by LGA" %>%
       h2() %>% 
       div(class = "inner") %>%
       div(class = "small-box") %>% 
@@ -86,30 +108,52 @@ page_maps_rentsUI <- function(...) {
       # # Chart option selectors
       shinydashboard::box(
         
-        title = "Explorer options",
+        title = "Options",
         width = 12,
         collapsible = TRUE,
         
-        shiny::fluidRow(
-          style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:10px;",
-          shiny::column(
-            12,
+        # Choice selector widget
+        shiny::column(
+          6,
+          shiny::div(
+            class = ".box",
+            style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:15px;",
             
-            # choice selector
-            shinyWidgets::radioGroupButtons(
-              "flat_type",
+            shinyWidgets::slimSelectInput(
               #this name needs to match with server input name
+              inputId = "flat_type",
               status = "secondary",
               label = "Select number of bedrooms",
-              choiceNames = c("1 Bedroom", "2 Bedrooms", "3 Bedrooms"),
-              choiceValues = c("1br flat", "2br Flat", "3br Flat"),
+              choices = c(
+                "1 Bedroom" = "1br flat",
+                "2 Bedrooms" = "2br Flat",
+                "3 Bedrooms" = "3br Flat"
+              ),
               selected = "2br Flat",
-              justified = T
+              search = FALSE
             )
           )
-        )) %>% 
+        ), 
+        # Slider widget
+        shiny::column(
+          6,
+          shiny::div(
+            class = ".box",
+            style = "background-color: #FFFFFF; border-radius: 1rem;margin:1px;padding:15px;",
+            #    
+            # Slide to select a quarter
+            shinyWidgets::sliderTextInput(
+              inputId = "flat_quarter",
+              label = "Select a quarter",
+              choices = seq.Date("2018-03-02", "2025-03-02", by = "quarter"),
+              selected = c("2025-03-01"),
+              grid = TRUE
+            )
+          )
+        )
+        ) %>% 
         tagAppendAttributes(
-          style = "background:var(--twilight);",
+          style = "background:var(--grey);",
           .cssSelector = ".box"
         ) %>%
         tagAppendAttributes(
@@ -129,7 +173,7 @@ page_maps_rentsUI <- function(...) {
       column(
         12,
         shiny::div(
-          class = "box",
+          class = ".box",
           style = "padding:15px;",
           fluidRow(
             column(

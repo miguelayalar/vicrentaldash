@@ -4,11 +4,13 @@
 
 # level chart ----
 leaflet_vic_lga <- function(data = datalist$map_rents,
-                            dw_type = "All Properties"
+                            dw_type = "All Properties",
+                            date_chosen = "2025-03-01"
 ) {
   
   df <- data %>%
-    dplyr::filter(dwelling_type == dw_type) %>% 
+    dplyr::filter(dwelling_type == dw_type,
+                  date ==  date_chosen) %>% 
     dplyr::select(lga, series, value, dwelling_type)
   
   
@@ -31,8 +33,6 @@ leaflet_vic_lga <- function(data = datalist$map_rents,
       highlightOptions = highlightOptions(
         weight = 3,
         color = "black",
-        #dashArray = "",
-        #fillOpacity = 0.7,
         bringToFront = TRUE
         ),
       label = labs,
