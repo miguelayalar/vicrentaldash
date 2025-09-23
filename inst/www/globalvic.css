@@ -185,7 +185,8 @@ a {
 
 .skin-blue .sidebar-menu > li.active > a {
   border-left: 10px solid var(--navbar-bg-dark-teal);
-  background: var(--navbar-bg-dark-teal);
+  background: var(--hover-light-teal);
+  color: var(--navbar-bg-dark-teal);
 }
 
 .skin-blue .sidebar-menu > li.active:hover > a {

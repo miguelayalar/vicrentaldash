@@ -6,7 +6,7 @@ page_rentsUI <- function(...) {
   shiny::fluidPage(
     
     # Overview - LGA rents
-    "Weekly median rents by LGA" %>%
+    "Weekly rents by LGA" %>%
       h2() %>% 
       div(class = "inner") %>%
       div(class = "small-box") %>% 
