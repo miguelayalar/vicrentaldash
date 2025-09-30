@@ -29,7 +29,7 @@ server <- function(input, output, session) {
   output$maps_rent_house <- leaflet::renderLeaflet({
     leaflet_vic_lga(
       dw_type = input$house_type,
-      date_chosen = input$quarter
+      date_chosen = input$house_quarter
     )
   })
   

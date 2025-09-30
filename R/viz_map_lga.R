@@ -5,7 +5,7 @@
 # level chart ----
 leaflet_vic_lga <- function(data = datalist$map_rents,
                             dw_type = "All Properties",
-                            date_chosen = "2025-03-01"
+                            date_chosen = "2024-03-01"
 ) {
   
   df <- data %>%
