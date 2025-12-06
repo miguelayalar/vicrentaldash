@@ -8,10 +8,10 @@ highcharts_vacancy <- function(
   
   df <- data %>% 
     tidyr::pivot_longer(cols = 2:11, names_to = "area", values_to = "value") %>% 
-    dplyr::mutate(
-      date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))
-    ) %>% 
-    dplyr::select(-Dates) %>% 
+    # dplyr::mutate(
+    #   date = as.Date(paste0(substr(Dates,6,9),"-",substr(Dates,3,4),"-01"))
+    # ) %>% 
+    #dplyr::select(-Dates) %>% 
     tidyr::drop_na() %>% 
     dplyr::filter(
       .data$area %in% regions 
@@ -28,7 +28,7 @@ highcharts_vacancy <- function(
     highcharter::hc_add_series(
       df, 
       "line",
-      hcaes(y = value, x = date, group = area)
+      hcaes(y = value, x = Dates, group = area)
     ) %>%
     highcharter::hc_plotOptions(series = list(label = list(enabled = TRUE))) %>%
     highcharter::hc_yAxis(
