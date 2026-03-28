@@ -54,7 +54,7 @@ page_maps_rentsUI <- function(...) {
             shinyWidgets::sliderTextInput(
               inputId = "house_quarter",
               label = "Select a quarter",
-              choices = seq(from = as.Date("2018-03-01"), to = as.Date("2025-06-01"), by = "3 months"),
+              choices = seq(from = as.Date("2018-03-01"), to = as.Date("2025-09-01"), by = "3 months"),
               selected = c("2025-06-01"),
               grid = TRUE
               )
@@ -145,7 +145,7 @@ page_maps_rentsUI <- function(...) {
             shinyWidgets::sliderTextInput(
               inputId = "flat_quarter",
               label = "Select a quarter",
-              choices = seq(from = as.Date("2018-03-01"), to = as.Date("2025-06-01"), by = "3 months"),
+              choices = seq(from = as.Date("2018-03-01"), to = as.Date("2025-09-01"), by = "3 months"),
               selected = c("2025-06-01"),
               grid = TRUE
             )
