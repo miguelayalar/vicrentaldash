@@ -28,11 +28,32 @@ highcharts_vacancy <- function(
     highcharter::hc_add_series(
       df, 
       "line",
-      hcaes(y = value, x = Dates, group = area)
+      hcaes(y = value, x = dates, group = area)
     ) %>%
     highcharter::hc_plotOptions(series = list(label = list(enabled = TRUE))) %>%
     highcharter::hc_yAxis(
-      labels = list(format = "{text}%")
+      labels = list(format = "{text}%"),
+      
+      plotLines = list(
+        list(
+          value = 3,
+          color = "#d62728",
+          width = 2,
+          dashStyle = "ShortDash",
+          zIndex = 5,
+          label = list(
+            text = "Low vacancy rate (3%)",
+            align = "right",
+            style = list(
+              color = "#d62728",
+              fontWeight = "bold"
+            )
+          )
+        )
+      )
+      
+      
+      
     ) %>% 
     highcharter::hc_exporting(enabled = TRUE) %>%
     highcharter::hc_title(text = title) %>%
